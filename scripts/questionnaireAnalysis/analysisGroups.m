@@ -1,11 +1,14 @@
 function [results] = analysisGroups (data1, data2)
 
+% Find the subjects to classify according to baseline (data1)
 indLow = find(data1 <= 3);
 indMed = find(data1 > 3 & data1 < 5);
 indHig = find(data1 >= 5);
 
+% save the index of the individuals
 results.numIndividuals = [numel(indLow), numel(indMed), numel(indHig)];
 
+% test using the indices in the baseline from data1. 
 if (numel(indLow) ~= 0)
     pval_low = signrank (data1(indLow), data2(indLow));
 else

@@ -1,4 +1,5 @@
-%% QUESTIONNAIREANALYSIS 
+% QUESTIONNAIREANALYSIS is used to analyse the questionnaire data from the 
+% experiment. 
 
 addpath('..\');
 [params] = GetParameters();
@@ -6,15 +7,11 @@ addpath('..\plot');
 load('..\..\data\questionnaireData.mat');
 
 
-%% Friedman ANOVA for sense of ownership
-
-
-
 %% sense of ownership - full arm static vs full arm dynamic
 [comparisonResults] = statisticsQuestionnaires (...
     squeeze(static_orderedResponses(params.quest.owner, 1, :)), ...
     squeeze(dynamic_orderedResponses(params.quest.owner, 1, :))...
-    );
+    ); 
 
 plotQuestionnaires(...
     squeeze(static_orderedResponses(params.quest.owner, 1, :)), ...
